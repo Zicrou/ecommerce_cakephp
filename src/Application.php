@@ -16,6 +16,7 @@ declare(strict_types=1);
  */
 namespace App;
 
+//use Auth\AuthenticationServiceProviderInterface;
 use Cake\Core\Configure;
 use Cake\Core\ContainerInterface;
 use Cake\Datasource\FactoryLocator;
@@ -117,6 +118,12 @@ class Application extends BaseApplication
     {
     }
 
+
+    public function getAuthenticationService()
+    {
+        
+    }
+
     /**
      * Bootstrapping for CLI application.
      *
@@ -130,7 +137,7 @@ class Application extends BaseApplication
         $this->addOptionalPlugin('Bake');
 
         $this->addPlugin('Migrations');
-
+        $this->addPlugin('Authentication');
         // Load more plugins here
     }
 }
