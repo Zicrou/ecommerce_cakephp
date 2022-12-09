@@ -113,10 +113,13 @@ class UsersController extends AppController
         // Configurez l'action de connexion pour ne pas exiger d'authentification,
         // évitant ainsi le problème de la boucle de redirection infinie
         $this->Authentication->addUnauthenticatedActions(['login']);
+        
+        // Allow Access To Registration
+        $this->Authentication->addUnauthenticatedActions(['login', 'add']);
     }
 
     /**
-     * BeforeFilter method
+     * Login method
     */
     public function login()
     {
@@ -136,6 +139,19 @@ class UsersController extends AppController
         // et que l'authentification a échoué
         if ($this->request->is('post') && !$result->isValid()) {
             $this->Flash->error(__('Votre identifiant ou votre mot de passe est incorrect.'));
+        }
+    }
+
+    /**
+     * Login method
+    */
+    public function logout()
+    {
+        $result = $this->Authentication->getResult();
+        // indépendamment de POST ou GET, rediriger si l'utilisateur est connecté
+        if ($result && $result->isValid()) {
+            $this->Authentication->logout();
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
         }
     }
 }
