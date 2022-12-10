@@ -14,7 +14,8 @@ class ProduitsController extends AppController
     public function view($slug = null)
     {
         $produit = $this->Produits->findBySlug($slug)->firstOrFail();
-        $this->set(compact('produit'));
+        $commande = null;
+        $this->set(compact('produit', 'commande'));
     }
 
     public function add()

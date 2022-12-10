@@ -28,15 +28,20 @@ class CommandesController extends AppController
         if ($this->request->is("post")) 
         {
             $commande = $this->Commandes->patchEntity($commande, $this->request->getData());
+           // $commande->produit_id = $commande->produitId;
+            
+            $user = $this->request->getAttribute('identity');
+            $commande->user_id = $user->id;
 
+           // debug($commande);
             if ($this->Commandes->save($commande))
             {
                 $this->Flash->success("Votre commande à été sauvegardé!");
-                return $this->redirect(["action" => "index"]);
+                return $this->redirect(["controller" => "commandes","action" => "index"]);
             }
             $this->Flash->error("Impossible d'ajouter votre commande.");
         }
-        $this->set(compact("commande"));
+        //$this->set(compact("commande"));
     }
 
     public function edit($slug)
