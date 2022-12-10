@@ -21,9 +21,25 @@ class ProduitsController extends AppController
     public function add()
     {
         $produit = $this->Produits->NewEmptyEntity();
+
         if ($this->request->is("post")) 
         {
             $produit = $this->Produits->patchEntity($produit, $this->request->getData());
+            
+            if(!$produit->getErrors())
+            {
+                $photo = $this->request->getData('photo_file'); 
+                $name = $photo->getClientFilename();
+    
+                $targetPath = WWW_ROOT. 'img' .DS.$name;
+                
+                if($name)
+                $photo->moveTo($targetPath);
+    
+                $produit->photo = $name;
+
+                
+            }
 
             if ($this->Produits->save($produit))
             {
@@ -42,7 +58,16 @@ class ProduitsController extends AppController
         if ($this->request->is(["post", "put"])) 
         {
             $produit = $this->Produits->patchEntity($produit, $this->request->getData());
-            
+            if(!$produit->getErrors())
+            {
+                $photo = $this->request->getData('photo_file'); 
+                
+    
+                $produit->photo = $photo;
+
+                
+            }
+
             if ($this->Produits->save($produit))
             {
                 $this->Flash->success("Votre produit à été modifié!");

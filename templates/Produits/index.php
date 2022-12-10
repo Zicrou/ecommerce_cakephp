@@ -3,6 +3,7 @@
 <table>
     <tr>
         <th>Nom</th>
+        <th>photo</th>
         <th>Created</th>
         <th>Actions</th>
     </tr>
@@ -11,6 +12,9 @@
         <tr>
             <td>
                 <?= $this->Html->link($produit->nom, ["action" => "view", $produit->slug]) ?>
+            </td>
+            <td>
+                <?= $this->Html->image($produit->photo, ["alt" => "photo"]); ?>
             </td>
             <td>
                 <?= $produit->created->format(DATE_RFC850) ?>
