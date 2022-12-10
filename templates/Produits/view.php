@@ -1,6 +1,4 @@
 <?php
-
-use Cake\Routing\Router;
 ?>
 <h1> <?= h($produit->nom) ?> </h1>
 <p> <?= h($produit->description)  ?> </p>

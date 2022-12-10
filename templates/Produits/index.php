@@ -1,5 +1,5 @@
 <h1>Produits</h1>
-<?= $this->Html->link("Ajouter un produit", ["action" => "add"]) ?>
+<h2><?= $this->Html->link("Ajouter un produit", ["action" => "add"]) ?></h2>
 <table>
     <tr>
         <th>Nom</th>
