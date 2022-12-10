@@ -14,6 +14,7 @@ class CommandesTable extends Table
         $this->addBehavior('Timestamp');
         $this->belongsTo('Produits')
         ->setForeignKey('produit_id');
+        $this->belongsTo('Users');
         
     }
 

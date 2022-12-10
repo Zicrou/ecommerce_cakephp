@@ -13,7 +13,7 @@
                 <?= $this->Html->link($commande->produit->nom, ["action" => "view",  $commande->produit_id]) ?>
             </td>
             <td>
-            <?= $this->Html->link($commande->user_id, ["action" => "view",  $commande->user_id]) ?>
+            <?= $commande->user->email ?>
             </td>
             <td>
                 <?= $commande->created->format(DATE_RFC850) ?>

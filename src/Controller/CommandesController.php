@@ -7,13 +7,14 @@ class CommandesController extends AppController
     public function index()
     {
         $this->loadComponent('Paginator');
-        $commandes = $this->Paginator->paginate($this->Commandes->find('all')->contain(['Produits']));    
+        $commandes = $this->Paginator->paginate($this->Commandes->find('all')->contain(['Produits', 'Users']));    
         $this->set(compact('commandes'));
     }
 
     public function view($id = null)
     {
         $commande = $this->Commandes->findByProduitId($id)->contain(['Produits'])->toList();
+        
         //foreach ($commande as $com) {
         //    echo $com->produit->nom;
         //}
