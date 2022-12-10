@@ -11,9 +11,13 @@ class CommandesController extends AppController
         $this->set(compact('commandes'));
     }
 
-    public function view($slug = null)
+    public function view($id = null)
     {
-        $commande = $this->Commandes->findBySlug($slug)->firstOrFail();
+        $commande = $this->Commandes->findByProduitId($id, ['contain' => ['Produits']])->all();
+        
+        //$produit = $Produit->findBySlug($slug)->firstOrFail();
+        //$article = $articles->get($id);
+        //$produit = $this->Produits->get(1)->firstOrFail();
         $this->set(compact('commande'));
     }
 

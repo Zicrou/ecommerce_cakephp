@@ -8,7 +8,6 @@ class Commande extends Entity
 {
     protected $_accesible = [ 
         '*' => true,
-        'id' => false,
-        'slug' => false
+        'id' => false
     ];
 }

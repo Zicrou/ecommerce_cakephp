@@ -8,7 +8,6 @@ class Produit extends Entity
 {
     protected $_accesible = [ 
         '*' => true,
-        'id' => false,
         'slug' => false
     ];
 }
