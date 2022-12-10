@@ -1,8 +1,8 @@
 <h1>Commandes</h1>
 <table>
     <tr>
-        <th>Produit ID</th>
-        <th>User ID</th>
+        <th>Produit</th>
+        <th>User</th>
         <th>Created</th>
         <th>Modified</th>
     </tr>
@@ -10,7 +10,7 @@
     <?php foreach ($commandes as $commande): ?>
         <tr>
             <td>
-                <?= $this->Html->link($commande->produit_id, ["action" => "view",  $commande->produit_id]) ?>
+                <?= $this->Html->link($commande->produit->nom, ["action" => "view",  $commande->produit_id]) ?>
             </td>
             <td>
             <?= $this->Html->link($commande->user_id, ["action" => "view",  $commande->user_id]) ?>
