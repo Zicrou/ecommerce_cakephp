@@ -1,4 +1,4 @@
-<h1>Produits</h1>
+<h1 class="">Produits</h1>
 <h2><?= $this->Html->link("Ajouter un produit", ["action" => "add"]) ?></h2>
 <table>
     <tr>
