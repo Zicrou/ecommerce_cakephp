@@ -4,10 +4,10 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-class Produit extends Entity
+class Commande extends Entity
 {
     protected $_accesible = [ 
         '*' => true,
-        'slug' => false
+        'id' => false
     ];
 }
