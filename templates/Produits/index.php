@@ -1,5 +1,4 @@
-<h1 class="">Produits</h1>
-<h2><?= $this->Html->link("Ajouter un produit", ["action" => "add"]) ?></h2>
+<h1><?= $this->Html->link("Ajouter un produit", ["action" => "add"]) ?></h1>
 <main>
     <?php foreach ($produits as $produit): ?>
         
